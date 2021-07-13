@@ -13,11 +13,15 @@ library(tidyverse)
 ```{r}
 
 libr <- read.csv("../data/library_id.txt", sep = "\t", header = FALSE)
+  colnames(libr)[1] <- "Uniq_ID"
 head(libr)
 ```
 
-```{r}
 
+Joining table 
+
+```{r}
+combined <- inner_join(qpcr, libr, by = "Uniq_ID" )
 ```
 
 
