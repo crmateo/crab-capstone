@@ -12,12 +12,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r packages, include=FALSE}
 install.packages("dplyr")
 library("dplyr")
+install.packages("https://cran.r-project.org/bin/macosx/contrib/4.1/colorspace_2.0-2.tgz", repos=NULL) #install 'colorspace'
 install.packages("ggplot2") #no package called 'colorspace'
 library("ggplot2")
 ```
 
 ```{r files}
-qpcr <- read.csv("/Users/crpenney/Desktop/Capstone/qpcr analysis/data/hematqpcr_crabRNA.csv")
+qpcr <- read.csv("/Users/crpenney/Desktop/crab-capstone/data/hematqpcr_crabRNA.csv")
 head(qpcr)
 ```
 
@@ -38,31 +39,31 @@ filter(trtmnt_tank == "cold" | trtmnt_tank == "warm" | trtmnt_tank == "ambient")
 
 ```{r plots}
 #treatment tank
-ggplot(avQpcr, aes(x = avg_sq)) +
+trtmnt <- ggplot(avgQpcr, aes(x = avg_sq)) +
   geom_histogram(bins = 100) +
   scale_x_log10() +
   facet_grid(~trtmnt_tank)
 
 #sample day
-ggplot(avQpcr, aes(x = avg_sq)) +
+day <- ggplot(avgQpcr, aes(x = avg_sq)) +
   geom_histogram(bins = 100) +
   scale_x_log10() +
   facet_grid(~sample_day)
 
 #infection status
-ggplot(avQpcr, aes(x = avg_sq)) +
+infection <- ggplot(avgQpcr, aes(x = avg_sq)) +
   geom_histogram(bins = 100) +
   scale_x_log10() +
   facet_grid(~infection_status)
 
 #maturity
-ggplot(avQpcr, aes(x = avg_sq)) +
+maturity <- ggplot(avgQpcr, aes(x = avg_sq)) +
   geom_histogram(bins = 100) +
   scale_x_log10() +
   facet_grid(~maturity)
 
 #sample negative or positive
-ggplot(avQpcr, aes(x = avg_sq)) +
+ggplot(avgQpcr, aes(x = avg_sq)) +
   geom_histogram(bins = 100) +
   scale_x_log10() +
   facet_grid(~sample_pos.neg)
