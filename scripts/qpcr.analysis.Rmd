@@ -56,7 +56,7 @@ ggplot(avgQpcr, aes(x = avg_sq)) +
 
 ```{r}
 #infection status
-infection <- ggplot(avgQpcr, aes(x = avg_sq)) +
+ggplot(avgQpcr, aes(x = avg_sq)) +
   geom_histogram(bins = 100) +
   scale_x_log10() +
   facet_grid(~infection_status)
@@ -74,10 +74,17 @@ maturity <- ggplot(avgQpcr, aes(x = avg_sq)) +
   scale_x_log10() +
   facet_grid(~maturity)
 
+
+```{r}
 #sample negative or positive
 ggplot(avgQpcr, aes(x = avg_sq)) +
   geom_histogram(bins = 100) +
   scale_x_log10() +
   facet_grid(~sample_pos.neg)
 ```
-
+```{r}
+#sample negative or positive
+ggplot(avgQpcr, aes(x = avg_sq)) +
+  geom_histogram(bins = 100) +
+  facet_grid(~sample_pos.neg)
+```
