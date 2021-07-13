@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 install.packages("dplyr")
 library("dplyr")
 install.packages("https://cran.r-project.org/bin/macosx/contrib/4.1/colorspace_2.0-2.tgz", repos=NULL) #install 'colorspace'
-install.packages("ggplot2") #no package called 'colorspace'
+install.packages("ggplot2")
 library("ggplot2")
 ```
 
@@ -43,29 +43,34 @@ trtmnt <- ggplot(avgQpcr, aes(x = avg_sq)) +
   geom_histogram(bins = 100) +
   scale_x_log10() +
   facet_grid(~trtmnt_tank)
+print(trtmnt) #will print when run directly from console, but not from script
 
 #sample day
 day <- ggplot(avgQpcr, aes(x = avg_sq)) +
   geom_histogram(bins = 100) +
   scale_x_log10() +
   facet_grid(~sample_day)
+print(day)
 
 #infection status
 infection <- ggplot(avgQpcr, aes(x = avg_sq)) +
   geom_histogram(bins = 100) +
   scale_x_log10() +
   facet_grid(~infection_status)
+print(infection)
 
 #maturity
 maturity <- ggplot(avgQpcr, aes(x = avg_sq)) +
   geom_histogram(bins = 100) +
   scale_x_log10() +
   facet_grid(~maturity)
+print(maturity)
 
 #sample negative or positive
-ggplot(avgQpcr, aes(x = avg_sq)) +
+neg.pos <- ggplot(avgQpcr, aes(x = avg_sq)) +
   geom_histogram(bins = 100) +
   scale_x_log10() +
   facet_grid(~sample_pos.neg)
+print(neg.pos)
 ```
 
