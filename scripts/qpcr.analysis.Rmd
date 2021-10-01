@@ -95,3 +95,5 @@ ggplot(avgQpcr, aes(x = avg_sq)) +
   geom_histogram(bins = 100) +
   facet_grid(~sample_pos.neg)
 ```
+
+this is a test
