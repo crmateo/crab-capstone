@@ -1,0 +1,33 @@
+---
+title: "03-Immune-genes"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+```
+
+
+
+```{bash}
+curl -O https://gannet.fish.washington.edu/Atumefaciens/20210318_cbai_trinotate_transcriptome-v4.0/20210318.cbai_transcriptome_v4.0.fasta.trinotate.go_annotations.txt
+
+```
+
+```{r files}
+  go <- read.csv("../data/20210318.cbai_transcriptome_v4.0.fasta.trinotate.go_annotations.txt", sep = "\t", header = FALSE)
+head(go)
+```
+
+
+```{bash}
+grep "GO:0006955" ../data/20210318.cbai_transcriptome_v4.0.fasta.trinotate.go_annotations.txt | wc -l
+```
+
+
+
+
+```{r}
+immune <- filter(go, grepl('GO:0006955',V2))
+```
+
