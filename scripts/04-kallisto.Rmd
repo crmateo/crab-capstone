@@ -21,7 +21,7 @@ cd ~
 
 ```{bash}
 cd ../data
-/home/shared/kallisto/kallisto index -i cb_v4 cbai_transcriptome_v4.0.fasta
+/home/shared/kallisto/kallisto index -i cb_v4.idx cbai_transcriptome_v4.0.fasta
 cd ~
 ```
 
