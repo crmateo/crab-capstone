@@ -1,0 +1,40 @@
+---
+title: "04-kallisto"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+```
+
+
+```{bash}
+pwd
+```
+
+```{bash}
+cd ../data
+curl -k -O https://gannet.fish.washington.edu/Atumefaciens/20210317_cbai_trinity_RNAseq_transcriptome-v4.0/cbai_transcriptome_v4.0.fasta_trinity_out_dir/cbai_transcriptome_v4.0.fasta
+cd ~
+```
+
+
+```{bash}
+cd ../data
+/home/shared/kallisto/kallisto index -i cb_v4.idx cbai_transcriptome_v4.0.fasta
+cd ~
+```
+
+
+
+```{bash}
+/home/shared/kallisto/kallisto quant
+-i kallisto_cbai_index_v2.0.idx \
+-o ../kallisto_libraries_cbai_transcriptomev2.0/id272 \
+../../data/libraries/272_R1_001.fastp-trim.202003184536.fq.gz \
+../../data/libraries/272_R2_001.fastp-trim.202003184536.fq.gz \
+2> ../kallisto_libraries_cbai_transcriptomev2.0/std_errortracking.txt
+```
+
+
+
