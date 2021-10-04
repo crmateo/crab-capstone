@@ -37,4 +37,9 @@ cd ~
 ```
 
 
+# Downloading fq file
+
+``` in terminal
+rsync -avz --progress sr320@mox.hyak.uw.edu:/gscratch/srlab/afcoyle/projects/hemat_bairdi_transcriptome/data/libraries/ . 
+```
 
